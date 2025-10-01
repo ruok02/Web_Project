@@ -1,0 +1,21 @@
+/*body(배경) 색상 하늘색*/
+body {background-color: aliceblue;}
+
+/*header h1 태그 적용*/
+header h1 { 
+	text-align: center;
+    color : purple;
+    font-size : 40px;
+} 
+
+caption {
+    text-align: center;
+    color : red;
+    font-style:initial;
+    font-size : 30px;
+    font : bold;
+}
+
+th, td {
+    text-align: center;
+}

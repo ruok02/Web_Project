@@ -7,14 +7,22 @@ h1 {
 	color : brown; 
 }
 
-/*h2 태그*/
-h2, h2 a:link, h2 a:visited {
+/*h2 태그 + 눌렸을 때에 보라색 방문 적용이 되버리기 때문에 그냥 추가해봄*/
+h2, h2 a:link, h2 a:visited { /*h2, h2링크, h2 방문흔적 시에 + h2태그 뒤에 a태그를 썼기 떄문에 a:를 사용하게됨*/
 	color: blue;
 	text-shadow: 3px 3px 3px skyblue ; /*우측, 아래, 흐림효과 반경, 그림자 색상*/
 }
 
-/*header 태그 안의 p 태그만 적용*/
-header p { 
+ul { 
+	border-width: 1px;
+	border-style: dotted;
+	border-color: black;
+}
+
+a { text-decoration: none; }
+
+/*header 태그 적용*/
+header { 
 	border-bottom-width: 1px; /* 아래쪽 테두리 두께를 1px*/
 	border-bottom-style: solid; /*아래쪽 테두리 스타일을 실선*/
 	border-bottom-color: black; /*아래쪽 테두리 색상 검정*/
@@ -22,18 +30,11 @@ header p {
 
 /*모든 p 태그에 적용*/
 p {
-	font-family: 휴먼편지체, 굴림, serif;
+	font-family: 휴먼편지체;
 	font-size: 1em;
 	text-indent: 1em;
 }
 
-ul {
-	border-width: 1px;
-	border-style: dotted;
-	border-color: black;
-}
-
-a { text-decoration: none; }
 
 footer {
 	background: orange;

@@ -19,3 +19,22 @@ caption {
 th, td {
     text-align: center;
 }
+
+.english {
+    background-color: #ffeaa7;
+}
+.philosophy {
+    background-color: #fab1a0;
+}
+.web {
+    background-color: #74b9ff;
+}
+.aiknow {
+    background-color: #55efc4;
+}
+.humanities {
+    background-color: #fdcb6e;
+}
+.AI {
+    background-color: #a29bfe;
+}

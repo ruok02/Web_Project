@@ -16,6 +16,12 @@ caption {
     font : bold;
 }
 
+table {
+    margin: 30px auto; /* 화면 중앙 정렬 */
+    border-collapse: collapse;
+    width: 80%; /* 필요에 따라 조절 */
+}
+
 th, td {
     text-align: center;
 }

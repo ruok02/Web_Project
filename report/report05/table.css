@@ -1,0 +1,46 @@
+/*body(배경) 색상 하늘색*/
+body {background-color: aliceblue;}
+
+/*header h1 태그 적용*/
+header h1 { 
+	text-align: center;
+    color : purple;
+    font-size : 40px;
+} 
+
+caption {
+    text-align: center;
+    color : red;
+    font-style:initial;
+    font-size : 30px;
+    font : bold;
+}
+
+table {
+    margin: 30px auto; /* 화면 중앙 정렬 */
+    border-collapse: collapse;
+    width: 80%; /* 필요에 따라 조절 */
+}
+
+th, td {
+    text-align: center;
+}
+
+.english {
+    background-color: #ffeaa7;
+}
+.philosophy {
+    background-color: #fab1a0;
+}
+.web {
+    background-color: #74b9ff;
+}
+.aiknow {
+    background-color: #55efc4;
+}
+.humanities {
+    background-color: #fdcb6e;
+}
+.AI {
+    background-color: #a29bfe;
+}

@@ -1,19 +1,33 @@
+/*추가*/
+html, body {
+	margin : 0; /*여백 제거*/
+	padding : 0; /*안쪽 여백 제거*/
+	height: 100%; /*html과 body의 높이를 부모 요소의 100%로 설정, 이러면 화면이 꽉참*/
+}
+
+/*header 태그 적용*/
+header { 
+	background: yellow;
+	width: 100%; height : 10%
+}
+
+form{
+	background: pink;
+	width: 100%; height: 60%;
+	margin-top: 5px;
+}
+
 body { 
 	background-color : aliceblue; 
 	padding: 10px;
 	margin: 10px;
 } 
 
-/*header 태그 적용*/
-header { 
-	border-bottom-width: 1px; /* 아래쪽 테두리 두께를 1px*/
-	border-bottom-style: solid; /*아래쪽 테두리 스타일을 실선*/
-	border-bottom-color: black; /*아래쪽 테두리 색상 검정*/
-} 
-
+ 
 header p {
 	font-size:30px;
 }
+
 form {
 	
 	background: pink;
@@ -37,6 +51,7 @@ span {
 }
 
 footer { 
-	background: orange;
+	background: violet;
+	width: 100%; height: 10%;
 	border-radius: 10px; 
 }

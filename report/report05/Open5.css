@@ -1,5 +1,24 @@
-/*body(배경) 색상 하늘색*/
-body {background-color: aliceblue;}
+/*추가*/
+html, body {
+	margin : 0; /*여백 제거*/
+	padding : 0; /*안쪽 여백 제거*/
+	height: 100%; /*html과 body의 높이를 부모 요소의 100%로 설정, 이러면 화면이 꽉참*/
+}
+
+/*header 태그 적용 + 5장 수정 */
+header { 
+	background: yellow;
+	width: 100%; height:15%;
+	float:left;
+}
+
+/*추가*/
+html, body {
+	margin : 0; /*여백 제거*/
+	padding : 0; /*안쪽 여백 제거*/
+	height: 100%; /*html과 body의 높이를 부모 요소의 100%로 설정, 이러면 화면이 꽉참*/
+}
+
 
 /*h1 태그 */
 h1 {
@@ -7,36 +26,42 @@ h1 {
 	color : brown; 
 }
 
-/*h2 태그 + 눌렸을 때에 보라색 방문 적용이 되버리기 때문에 그냥 추가해봄*/
-h2, h2 a:link, h2 a:visited { /*h2, h2링크, h2 방문흔적 시에 + h2태그 뒤에 a태그를 썼기 떄문에 a:를 사용하게됨*/
-	color: blue;
-	text-shadow: 3px 3px 3px skyblue ; /*우측, 아래, 흐림효과 반경, 그림자 색상*/
-}
-
+/* 목차 ul 점선 태그 없어짐
 ul { 
 	border-width: 1px;
 	border-style: dotted;
-	border-color: black;
-}
+	border-color: rgb(128, 79, 79);
+}*/
 
 a { text-decoration: none; }
 
-/*header 태그 적용*/
-header { 
-	border-bottom-width: 1px; /* 아래쪽 테두리 두께를 1px*/
-	border-bottom-style: solid; /*아래쪽 테두리 스타일을 실선*/
-	border-bottom-color: black; /*아래쪽 테두리 색상 검정*/
-} 
 
-/*모든 p 태그에 적용*/
-p {
-	font-family: 휴먼편지체;
-	font-size: 1em;
-	text-indent: 1em;
+
+/*추가함*/
+nav {
+	display: block;
+	background : orange;
+	width : 20%; height: 100%;
+	float:left;
+	
 }
 
 
-footer {
-	background: orange;
-	border-radius: 10px;
+/*추가함*/
+section {
+	background : lightblue;
+	width:80%; height:100%;
+	float: left;
+	
 }
+
+footer { 
+	background: violet;
+	width: 100%; height: 10%;
+	float: left;
+}
+
+
+
+
+

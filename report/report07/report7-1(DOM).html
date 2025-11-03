@@ -1,0 +1,55 @@
+<!-- 7장의 JS의 document.write()를 대신한 DOM의 사용 방법의 공부-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>난수</title>
+</head>
+
+<body>
+    <h3>난수 10개 생성</h3>
+    <hr>
+    <!-- 결과 출력 장소 + "Divsion, 컨테이너 역할"-->
+    <div id="result"></div>
+    <script>
+
+        var plots = [];
+        /** result의 이름표를 가진 요소를 메모리에 로딩하여 찾은 DOM 객체를 outputDiv에 저장*/
+        var outputDiv = document.getElementById("result");
+        var randomNumberText = "";
+
+        // 1. 난수 생성 및 문자열로 준비
+        for (var i = 0; i < 10; i++) {
+            /** 1 이상 101 미만 */
+            plots[i] = Math.floor(Math.random() * 100 + 1);
+            randomNumberText += plots[i] + " ";
+        }
+
+        // 2. 난수 목록 출력 (DOM 사용!) for() 반복문 안에 넣는게 좋나? 밖에 넣는게 좋나?
+        // '=(할당)'으로 초기화 및 내용 삽입으로 outputDiv의 기존 내용 모두 지우고 난수 목록을 새롭게 삽입.
+        outputDiv.innerHTML = randomNumberText + "<hr>";
+
+
+        // 3. 최대값 찾기
+        var big = plots[0];
+        for (var i = 0; i < 10; i++) {
+            if (big < plots[i]) {
+                big = plots[i];
+            }
+        }
+
+        // 4. 최대값 출력
+        // '+=(누적)'으로 기존 내용 뒤에 추가하여 이미 div에 나누 목록이 들어가있어, 그 뒤에 덧붙여 결과를 출력.
+        outputDiv.innerHTML += "제일 큰 수는 " + big + "<hr>";
+
+        // 5. 배열 정렬, 정확한 정렬을 위한 비교 함수 필요
+        plots.sort((a, b) => a - b);
+
+        // 6. 정렬된 배열 출력, join 사용 시에 배열 n의 모든 요소 사이에 공백 문자열을 넣고, 하나의 문자열로 합쳐 반환.
+        outputDiv.innerHTML += plots.join(" ");
+
+    </script>
+</body>
+
+</html>

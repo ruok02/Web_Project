@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>7-1</title>
+</head>
+
+<body>
+    <h3>난수 10개 생성</h3>
+    <hr>
+    <script>
+         // 1. 난수 n[] 배열 생성 및 초기화
+        var plots = [];
+        
+        // 2. for() 반복문으로 난수 10개 생성
+        for (var i = 0; i < 10; i++) {
+            // 3. Math.floor(): 소수점 이하 버리기, Math.randon(): 0 이상 1 미만, *100: 0 이상 100 미만, +1: 1 이상 101 미만
+            plots[i] = Math.floor(Math.random() * 100 + 1);
+            document.write(plots[i] + " ");
+        }
+        document.write("<hr>");
+
+        // 4. 최대값 구하기
+        var big = plots[0];
+        for (var i = 0; i < 10; i++) {
+            // n[0]의 첫 번째 배열값이 plots[i]의 값보다 작으면
+            if (big < plots[i]) {
+                // 최대값은 plots[i]
+                big = plots[i];
+            }
+        }
+
+        document.write("제일 큰 수는 " + big + "<hr>");
+        
+        // 5. 배열 정렬
+        plots.sort((a,b) => a - b);
+
+        // 6. 정렬된 배열 값 출력
+        document.write(plots.join(" "))
+    </script>
+</body>
+
+</html>

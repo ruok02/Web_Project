@@ -10,9 +10,9 @@
     <h3>정수 5개 입력받아 역순으로 출력</h3>
     <hr>
     <script>
-        var num = [i];
+        var num = [];
         for (var i = 0; i < 5; i++) {
-            var text = prompt("정수 입력");
+            num[i] = prompt("정수 입력", "");
         }
 
         document.write("입력된 수의 배열" + "<br>");
@@ -20,12 +20,12 @@
             document.write(num[i] + " ");
         }
 
+        // reverse() 값 변경
         num.reverse();
         document.write("<br>" + "역순으로 재정렬된 배열" + "<br>");
         for (var i = 0; i < 5; i++) {
-            document.write(num[i] + " >");
+            document.write(num[i] + " ");
         }
-
 
     </script>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 16개 div 태그 출력</title><br>
+    <script>
+        // RGB 랜덤 출처 : https://velog.io/@hyejin4169/JavaScript-%EB%9E%9C%EB%8D%A4-RGB-%EC%83%89-%EB%A7%8C%EB%93%A4%EA%B8%B0
+        const generateRGB = function () {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+           return "rgb(" + r + "," + g + "," + b + ")";
+        }
+    </script>
+    <style>
+        div {
+            display: inline-block;
+            width: 140px;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h3>16개의 CSS 색이름과 색</h3>
+    <hr>
+    <script>
+
+        // 1. 색상 값을 저장할 배열 선언
+        var colorNames = [];
+        
+
+        // 2. generateRGB 함수를 호출 & 색상 문자열 생성 및 저장
+        for (var i = 0; i < 16; i++) {
+            // [r, g, b] 배열 반환
+            const rgbArray = generateRGB();
+
+            colorNames[i] = generateRGB();
+        }
+
+       
+
+        for (var i = 0; i < colorNames.length; i++) {
+            var str = "<div style='background-color:";
+            str += colorNames[i];
+            str += "'>" + colorNames[i] + "</div>";
+            document.write(str);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
+
+

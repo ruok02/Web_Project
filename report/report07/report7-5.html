@@ -30,11 +30,12 @@
         document.write("가장 긴 이름: " + Longname + "<br>");
 
         /** (3)names배열에서 사전에서 가장 먼저 나오는 이름을 출력하라.*/
-        var sortedFirstName = names.slice().sort();
-        var firstAlphabetName = sortedFirstName[0];
-        document.write("가장 먼저 나오는 이름: " + firstAlphabetName + "<br>");
+        names.sort();
+        document.write("가장 먼저 나오는 이름: " + names[0] + "<br>");
         
         /** (4)names배열을 증가 순으로 재정렬하여 출력하라.*/
+        document.write("증가순 이름: ", names.join(" ") + "<br>");
+
     </script>
 </body>
 

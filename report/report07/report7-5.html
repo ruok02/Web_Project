@@ -13,13 +13,27 @@
         var names = new Array("wonsun", "jaemoonlee", "kitae", "gracehwang");
 
         /** (1)names배열에 들어 있는 각 이름을 출력하라.*/
-        document.write("이름: ");
-        for(var i = 0; i < names.length; i++){
-            document.write(names[i] + " ");
-        }
+        document.write("이름: ", names.join(" ") + "<br>");
 
         /** (2)names배열에서 가장 긴 이름을 출력하라.*/
+        var Longname = names[0]; // Longname 변수를 names[] 배열의 1번쨰 초기화
+
+        // Longlength 변수를 1번째 원소의 길이로 초기화
+        var Longlength = names[0].length;
+        for(var i = 0; i < names.length; i++){
+            // names[i]의 길이가 첫번째부터 저장된 값의 길이보다 더 크면
+            if(names[i].length > Longlength){
+                Longname = names[i]; // 최대길이 값인 i번째의 값에 변수 대입
+                Longlength = names[i].length; // 동시에 최대 길이도 변경
+            }
+        }
+        document.write("가장 긴 이름: " + Longname + "<br>");
+
         /** (3)names배열에서 사전에서 가장 먼저 나오는 이름을 출력하라.*/
+        var sortedFirstName = names.slice().sort();
+        var firstAlphabetName = sortedFirstName[0];
+        document.write("가장 먼저 나오는 이름: " + firstAlphabetName + "<br>");
+        
         /** (4)names배열을 증가 순으로 재정렬하여 출력하라.*/
     </script>
 </body>

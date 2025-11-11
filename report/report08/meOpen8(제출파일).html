@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>겜블링 게임</title>
+    <style>
+        #gambling{
+            border: 1px solid violet;
+            width : 200px;
+            text-align: center;
+            background-color:linen;
+            color:blue;
+            font-style:italic;
+            font-size:70px;
+        }
+        
+        #result{
+            color : violet;
+            font-style: italic;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <h3>겜블링 게임</h3>
+    <p>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. </p>
+    <p>모두 같은 수가 나오면 승리합니다.</p>
+    <hr>
+
+    <!--DOM 객체 -->
+    <div id="gambling">
+        <!--예제 8.3, 8.4 8.5 this 키워드 및 함수 사용-->
+        <span id="first" onclick="rand(this)">0</span>
+        <span id="second" onclick="rand(this)">0</span>
+        <span id="third" onclick="rand(this)">0</span>
+    </div>
+    <div id="result" onclick="reset()"></div>
+
+    <script>
+        // 7장. Array 객체를 이용한 배열 선언, 6장. var 키워드를 이용한 변수 선언
+        var randArray = [0, 0, 0]; // 0: 클릭 가능, 1: 클릭됨.
+
+        // 6장. 함수 작성
+        function rand(obj) {
+            if (obj == document.getElementById("first")) {
+                var first = document.getElementById("first")
+                randArray[0] = Math.floor(Math.random() * 3)
+                first.innerHTML = randArray[0];
+            }
+            else if (obj == document.getElementById("second")) {
+                var second = document.getElementById("second")
+                randArray[1] = Math.floor(Math.random() * 3)
+                second.innerHTML = randArray[1];
+
+            }
+            else if (obj == document.getElementById("third")) {
+                var third = document.getElementById("third")
+                randArray[2] = Math.floor(Math.random() * 3)
+                third.innerHTML = randArray[2];
+
+                var result = document.getElementById("result")
+
+                if (randArray[0] == randArray[1] && randArray[0] == randArray[2]) {
+                    result.innerHTML = "Success(click here to do again)"
+                }
+                else {
+                    result.innerHTML = "fail(Click here to do again)"
+                }
+            }
+        }
+        /* js 함수 재시작 방법 → 출처 : https://blog.naver.com/seek316/222686367096*/
+        function reset() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

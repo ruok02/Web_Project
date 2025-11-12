@@ -3,35 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title>visibility 프로퍼티</title>
+    <title>8-3</title>
     <style>
         span {
             visibility: hidden;
-            color:blue;
+            color: blue;
         }
     </style>
     <script>
         function show() {
-           var spanArray = document.getElementsByTagName("span");
+            var spanArray = document.getElementsByTagName("span");
 
-            for(var i = 0; i < spanArray.length; i++){
+            for (var i = 0; i < spanArray.length; i++) {
                 var span = spanArray[i];
                 // 현재 적용된 스타일을 가져오기 위해 getComputedStyle에 span 객체를 전달
                 var style = window.getComputedStyle(span);
                 var view = style.getPropertyValue("visibility");
-				if(view == "hidden")
-					span.style.visibility = "visible";
-				else
-					span.style.visibility = "hidden";		
-			
+                if (view == "hidden")
+                    span.style.visibility = "visible";
+                else
+                    span.style.visibility = "hidden";
             }
-
         }
     </script>
 </head>
 
 <body>
-    <h3>다음 빈 곳에 숨은 단어? <button onclick = "show()">show/hide</button></h3>
+    <h3>다음 빈 곳에 숨은 단어? <button onclick="show()">show/hide</button></h3>
     <hr>
     <ul>
         <li>I (<span>love</span>) you.

@@ -14,16 +14,28 @@
             span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
             span.style.margin = "20px"; // 상하좌우 여백 20px
         }
+        function p() {
+            let p = document.getElementById("p");
+            p.style.color = "green";
+            p.style.fontSize = "60px";
+        }
+
+        function restart() {
+            document.location.reload();
+        }
     </script>
 </head>
 
 <body>
     <h3>CSS 스타일 동적 변경</h3>
     <hr>
-    <p style="color:blue">이것은
-        <span id="mySpan" style="color:red">문장입니다.</span>
-    </p>
+    <p id="p" style="color:blue">이것은</p>
+    <span id="mySpan" style="color:red">문장입니다.</span>
+
+
     <input type="button" value="스타일변경" onclick="change()">
+    <input type="button" value="p태그변경" onclick="p()">
+    <input type="button" value="초기화" onclick="restart()">
 </body>
 
 </html>

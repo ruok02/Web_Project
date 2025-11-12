@@ -1,0 +1,29 @@
+<!--yellowgreen 색으로 칠해진 영역은 <ol>이 출력된 영역이다.
+    이 영역에 마우스로 클릭하면 다음과 같이 prompt() 함수를 출력하고, 사용자로부터 입력받은 문자열로 끓이는 순서를 하나씩 삽입하는 자바스크립트 코드를 삽입하라.-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>8-9</title>
+    <script>
+        function add() {
+            var ppt = prompt("라면을 끓이는 순서를 입력하라.");
+            var ol = document.getElementsByTagName("ol")[0]; // 첫 번째 <ol> 값 선택
+            //DOM 객체 동적 생성: document.createElement("태그이름")
+            var newli = document.createElement("li"); // newli 변수 선언으로 <li> 객체 생성
+            newli.innerHTML = ppt; // newli 객체에 입력받은 문자열 넣기
+            ol.appendChild(newli); // ol 객체에 newli 객체 추가됨.
+        }
+    </script>
+</head>
+
+<body>
+    <h3>라면을 끓이는 순서</h3>
+    <hr>
+    <ol type="A" style="background-color: yellowgreen;" onclick="add()">
+        <li>물을 끓인다</li>
+    </ol>
+</body>
+
+</html>

@@ -12,7 +12,8 @@
             var ol = document.getElementsByTagName("ol")[0]; // 첫 번째 <ol> 값 선택
             //DOM 객체 동적 생성: document.createElement("태그이름")
             var newli = document.createElement("li"); // newli 변수 선언으로 <li> 객체 생성
-            newli.innerHTML = ppt; // newli 객체에 입력받은 문자열 넣기
+            newli.innerHTML = ppt; // 프롬프트에 입력된 값을 newli 객체에 입력받은 문자열 넣기
+            // 부모.appendChild(DOM객체); 
             ol.appendChild(newli); // ol 객체에 newli 객체 추가됨.
         }
     </script>

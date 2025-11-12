@@ -18,6 +18,7 @@
                 var span = spanArray[i];
                 // 현재 적용된 스타일을 가져오기 위해 getComputedStyle에 span 객체를 전달
                 var style = window.getComputedStyle(span);
+                // .getPropertyValue() → CSS 속성 값 얻기 / 출처 : https://homzzang.com/b/js-1901
                 var view = style.getPropertyValue("visibility");
                 if (view == "hidden")
                     span.style.visibility = "visible";

@@ -10,8 +10,10 @@
     <script>
         function drawImage() {
             var found = null;
-            var fruitArray = document.getElementsByName("fruits");
             var img = document.getElementById("fruitimage");
+            var fruitArray = document.getElementsByName("fruits");
+
+            
             for (var i = 0; i < fruitArray.length; i++) {
                 if (fruitArray[i].checked == true) {
                     found = fruitArray[i];

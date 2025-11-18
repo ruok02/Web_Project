@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>9-2</title>
+    <script>
+        // 이미지 변경하는 js의 drawImage() 함수
+        function drawImage() {
+            var found = null;
+            var img = document.getElementById("fruitimages");
+            var fruitsArray = document.getElementsByName("fruits");
+
+            for (var i = 0; i < fruitsArray.length; i++) {
+                if (fruitsArray[i].checked == true)
+                    found = fruitsArray[i].value;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+    <hr>
+    <form>
+        <input type="radio" name="fruits" value="banana" onchange="drawImage()">바나나
+        <input type="radio" name="fruits" value="mango" onchange="drawImage()">망고
+        <input type="radio" name="fruits" value="apple" onchange="drawImage()" checked>사과
+    </form>
+    <img id="fruitsimages" src="/media/banana.jpg" width="100" height="100" alt ="">
+    <img id="fruitsimages" src="/media/mango.jpg" width="100" height="100">
+    <img id="fruitsimages" src="/media/apple.jpg" width="100" height="100">
+</body>
+
+</html>

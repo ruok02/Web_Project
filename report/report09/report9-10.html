@@ -1,81 +1,127 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>9-10</title>
     <style>
-         td{
-            padding: 7px;
-            
+        td {
+            /* 계산기 사이의 공간 여백을 줘야 안붙음 */
+            padding: 1px;
+
         }
-        input[type=button]{
+
+        /* button인 타입의 스타일만 조정*/
+        input[type=button] {
             text-align: center;
-            width: 50px;
+            width: 60px;
             padding: 5px;
         }
     </style>
+
     <script>
-        var str="";
-        function backspace(){
+        /*  */
+        var data = "";
+        /* 'data'은 사용자가 입력한 수식 문자열을 저장하는 전역 변수입니다. 
+           이 변수가 실제 계산 데이터(상태)를 관리하는 중앙 저장소 역할을 합니다. */
+        function backspace() {
+            /* BACK 버튼 클릭 시 마지막 문자를 지우는 함수를 정의합니다. */
             var exp = document.getElementById("exp");
+            /* ID가 "exp"인 입력 창(input type="text") DOM 요소를 가져옵니다. */
             var len = exp.value.length;
-            str = exp.value.substring(0, len-1);
-            exp.value = str;
-        }
-        
-        function nclear(){
-            document.getElementById("exp").value = "0";
-            str = "";
-        }
-        
-        function calc(){
-            document.getElementById("exp").value = eval(str);
+            /* 입력 창에 현재 표시된 문자열의 길이를 가져옵니다. */
+            data = exp.value.subdataing(0, len - 1);
+            /* 입력 창 문자열의 처음부터 끝에서 두 번째 문자(len-1)까지 잘라내어 
+               (즉, 마지막 한 문자를 제거하고) 전역 변수 'data'을 업데이트합니다. */
+            exp.value = data;
+            /* 업데이트된 'data' 문자열을 다시 입력 창에 표시합니다. */
         }
 
-        function num(text){
-            str+=text;
-            document.getElementById("exp").value = str;
+        function nclear() {
+            /* CE 또는 C 버튼 클릭 시 입력 창을 초기화하는 함수를 정의합니다. */
+            document.getElementById("exp").value = "0";
+            /* 입력 창의 값을 요구사항에 따라 "0"으로 초기화합니다. */
+            data = "";
+            /* 전역 변수 'data'도 빈 문자열로 초기화하여 새로운 계산을 준비합니다. */
+        }
+
+        function calc() {
+            /* '=' 버튼 클릭 시 수식을 계산하는 함수를 정의합니다. */
+            document.getElementById("exp").value = eval(data);
+            /* 전역 변수 'data'에 저장된 수식 문자열을 eval() 함수를 사용하여 계산하고, 
+               그 결과를 입력 창에 출력합니다. */
+        }
+
+        function num(text) {
+            /* 숫자나 연산자 버튼 클릭 시 수식을 입력하는 함수를 정의합니다. 
+               'text'는 클릭된 버튼의 값(예: '7', '+', '*')을 매개변수로 받습니다. */
+            data += text;
+            /* 전역 변수 'data'에 매개변수 'text'를 추가하여 수식을 누적시킵니다. */
+            document.getElementById("exp").value = data;
+            /* 업데이트된 'data' 문자열을 입력 창에 즉시 표시합니다. */
         }
     </script>
 </head>
+
 <body>
     <h3>계산기 만들기</h3>
+
     <hr>
     <form>
-        <table border="0">
-            <tr><td colspan="4"><input type="text" id="exp" value="0"></td></tr>
-            <tr> 
-                <td><input type="button" value="Back" onclick="backspace()"></td>  
-                <td><input type="button" value="CE" onclick="nclear()"></td>  
-                <td><input type="button" value="C" onclick="nclear()"></td>  
-                <td><input type="button" value="=" onclick="calc()"></td>  
-            </tr> 
-            <tr> 
-                <td><input type="button" value="7" onclick="num('7')"></td>  
-                <td><input type="button" value="8" onclick="num('8')"></td>  
-                <td><input type="button" value="9" onclick="num('9')"></td>  
-                <td><input type="button" value="/" onclick="num('/')"></td>  
-            </tr> 
-            <tr> 
-                <td><input type="button" value="4" onclick="num('4')"></td>  
-                <td><input type="button" value="5" onclick="num('5')"></td>  
-                <td><input type="button" value="6" onclick="num('6')"></td>  
-                <td><input type="button" value="*" onclick="num('*')"></td>  
-            </tr> 
-            <tr> 
-                <td><input type="button" value="1" onclick="num('1')"></td>  
-                <td><input type="button" value="2" onclick="num('2')"></td>  
-                <td><input type="button" value="3" onclick="num('3')"></td>  
-                <td><input type="button" value="-" onclick="num('-')"></td>  
-            </tr> 
-            <tr> 
-                <td><input type="button" value="0" onclick="num('0')"></td>  
-                <td><input type="button" value="+" onclick="num('+')"></td>  
-                <td><input type="button" value="NONE"></td> 
-                <td><input type="button" value="NONE"></td> 
-            </tr> 
-        </table> 
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" id="exp" value="0"></td>
+                <!-- 입력 창입니다.
+                colspan="4"로 4칸을 합쳐서 넓게 만듭니다.
+                id="exp"로 JavaScript가 이 요소를 식별하도록 하고,
+                value="0"로 초기값을 0으로 설정합니다.-->
+            </tr>
+            <tr>
+                <!-- 'Back' 버튼: 클릭 시 backspace() 함수를 호출하여 마지막 문자를 지웁니다. -->>
+                <td><input type="button" value="Back" onclick="backspace()"></td>
+
+                <!-- 'CE' 버튼: 클릭 시 nclear() 함수를 호출하여 초기화합니다. -->
+                <td><input type="button" value="CE" onclick="nclear()"></td>
+
+                <!-- 'C' 버튼: 클릭 시 nclear() 함수를 호출하여 초기화합니다. -->
+                <td><input type="button" value="C" onclick="nclear()"></td>
+
+                <!-- '=' 버튼: 클릭 시 calc() 함수를 호출하여 수식을 계산합니다. -->
+                <td><input type="button" value="=" onclick="calc()"></td>
+
+            </tr>
+
+            <tr>
+                <!-- 숫자 버튼: 클릭 시 num() 함수에 자신의 값('7')을 문자열로 전달합니다. -->
+                <td><input type="button" value="7" onclick="num('7')"></td>
+                <td><input type="button" value="8" onclick="num('8')"></td>
+                <td><input type="button" value="9" onclick="num('9')"></td>
+                <!-- 연산자 버튼: 클릭 시 num() 함수에 연산자 문자열('/')을 전달합니다. -->
+                <td><input type="button" value="/" onclick="num('/')"></td>
+
+            </tr>
+
+            <tr>
+                <td><input type="button" value="4" onclick="num('4')"></td>
+                <td><input type="button" value="5" onclick="num('5')"></td>
+                <td><input type="button" value="6" onclick="num('6')"></td>
+                <td><input type="button" value="*" onclick="num('*')"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="1" onclick="num('1')"></td>
+                <td><input type="button" value="2" onclick="num('2')"></td>
+                <td><input type="button" value="3" onclick="num('3')"></td>
+                <td><input type="button" value="-" onclick="num('-')"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="0" onclick="num('0')"></td>
+                <td><input type="button" value="+" onclick="num('+')"></td>
+                <td><input type="button" value="NONE"></td>
+                <!-- 'NONE' 버튼: onclick 리스너가 없어 아무 기능도 수행하지 않습니다. -->
+                <td><input type="button" value="NONE"></td>
+            </tr>
+        </table>
     </form>
 </body>
-</html>
-​

@@ -12,9 +12,12 @@
             var fruitsArray = document.getElementsByName("fruits");
 
             for (var i = 0; i < fruitsArray.length; i++) {
-                if (fruitsArray[i].checked == true)
-                    found = fruitsArray[i].value;
+                if (fruitsArray[i].checked == true){
+                    found = fruitsArray[i];
+                    break;
+                }
             }
+            img.src = found.value;
         }
     </script>
 </head>
@@ -23,13 +26,12 @@
     <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
     <hr>
     <form>
-        <input type="radio" name="fruits" value="banana" onchange="drawImage()">바나나
-        <input type="radio" name="fruits" value="mango" onchange="drawImage()">망고
-        <input type="radio" name="fruits" value="apple" onchange="drawImage()" checked>사과
+        <input type="radio" name="fruits" value="/media/banana.jpg" onchange="drawImage()">바나나
+        <input type="radio" name="fruits" value="/media/mango.jpg" onchange="drawImage()">망고
+        <input type="radio" name="fruits" value="/media/apple.jpg" onchange="drawImage()">사과
     </form>
-    <img id="fruitsimages" src="/media/banana.jpg" width="100" height="100" alt ="">
-    <img id="fruitsimages" src="/media/mango.jpg" width="100" height="100">
-    <img id="fruitsimages" src="/media/apple.jpg" width="100" height="100">
+
+    <img id="fruitimages" src="/media/apple.jpg" width="100" height="100" alt ="">
 </body>
 
 </html>

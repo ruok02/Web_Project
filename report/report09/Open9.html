@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>마우스 클릭 연습</title>
+    <meta charset="utf-8">
+    <title>Open9</title>
     <style>
         table {
             border: 1px solid blue;
@@ -16,50 +16,99 @@
             height: 50px;
             padding: 0px;
         }
+
+        /* 이미지 크기가 일치하게 설정함 */
+        img {
+            width: 50px;
+            height: 50px;
+        }
     </style>
+
     <script>
-        var select = 0; // 선택된 셀 번호
+        var select = -1; // 현재 이미지가 있는 셀의 인덱스 (초기값 -1)
         var img = new Image();
-        img.src = "media/donkey.png"; // 45x45 크기. 미리 로딩
+        img.src = "/media/donkey.png";
 
-        function set() {
-            var table = document.getElementById("table1");
+        function table() {
+            var table = document.getElementById("table");
+            var imgCount = 0; // 이미지 인덱스를 추적할 카운터
 
+            // 출처 : https://giveme100.tistory.com/126
+            // 1. 10x10 테이블 구조 생성
             for (var i = 0; i < 10; i++) {
+                // 행(row) 생성
                 var row = document.createElement("tr");
 
+                // 열(column) 생성
                 for (var j = 0; j < 10; j++) {
-                    var col = document.createElement("td");
-                    col.innerHTML = "<img src=''>"
-                    row.appendChild(col);
+                    var column = document.createElement("td");
+                    // 초기에 숨기는 옵션 사용으로 빈칸 만들기
+                    column.innerHTML = '<img src="" style="visibility: hidden;">';
+                    row.appendChild(column);
+                    imgCount++; // 이미지 카운트 증가
                 }
-                table.appendChild(row);
+                // https://yelee.tistory.com/14#google_vignette
+                table.appendChild(row); // row에 저장된 행() 요소를 자식 노드로 추가
             }
 
-            // 100개의 이미지에 모두 click 리스너 등록
-            for (var i = 0; i < 100; i++) {
-                // <img> 태그 엘리먼트가 공간을 차지하지만 보이지 않게 한다.
+            // 2. 모든 <img> 태그에 click 리스너 등록
+            for (var i = 0; i < document.images.length; i++) {
+                // document.images[i] → <img> 태그
                 document.images[i].onclick = moveImage;
             }
-            moveImage(); // 셀을 선택하고 이미지 출력
+            // 3. 초기 이미지 출력 > 초기화 및 그리기
+            initAndDraw();
         }
 
-        // <img> 태그의 click 리스너
-        function moveImage() { // 다른 셀로 이미지를 옮긴다.
-            // 현재 <img>에 보여질 이미지를 제거하고, 보이지 않게 한다.
-            document.images[select].src = "";
+        // 함수 initAndDraw()의 기능은 셀 선택 후 이미지 출력하여 보이게 하는 style 지정
+        function initAndDraw() {
+            select = Math.floor(Math.random() * document.images.length);
 
-            // 0~99 사이의 랜덤한 셀을 선택
-            select = Math.floor(Math.random() * 100);
+            // 새로 선택된 셀에 이미지 출력
+            var currentImg = document.images[select];
+            currentImg.src = img.src;
 
-            // 새로 선택된 셀에 이미지 출력하고, 이미지를 보이게 한다.
-            document.images[select].src = img.src;
+            // 이미지를 보이게 함
+            currentImg.style.visibility = "visible";
+        }
+
+
+        // <img> 태그의 click 리스너 → 이미지 옮기기 & initAndDraw()함수의 뒷과정으로 이미지가 로드가 되면 클릭했을 때의 동적 움직임 추가?
+        function moveImage(e) {
+            // 이전 위치의 이미지 제거 prevImg = 이미지 보여주기 변수명 고정
+            var prevImg = document.images[select];
+
+            // 이전 이미지의 src를 지우기 <교재 조건>
+            prevImg.src = "";
+
+            // 이전 이미지를 다시 숨김
+            prevImg.style.visibility = "hidden";
+
+            // 새로운 셀 선택하기(클릭)
+            var newSelect = Math.floor(Math.random() * document.images.length);
+
+            // 새로 선택된 셀에 이미지 출력시키기
+            var newImg = document.images[newSelect];
+            newImg.src = img.src;
+
+            // 새 이미지를 보이게 합니다
+            newImg.style.visibility = "visible";
+
+            // select 상태 업데이트
+            select = newSelect;
         }
     </script>
+
 </head>
 
-<body onload="set()">
-    <table id="table1"></table>
+<!-- body onload="..." 양식 지키기 -->
+
+<body onload="table()">
+    <h3>마우스 클릭 연습</h3>
+    <hr>
+    <!-- table id 객체 가져와서 불러오기-->
+    <table id="table"></table>
+
 </body>
 
 </html>
